@@ -1,0 +1,5 @@
+TERMOS DE USO — GESTOR PRO
+
+Arquivo modelo para ser substituído pelos Termos de Uso oficiais antes da publicação.
+Inclua: identificação do fornecedor, regras de assinatura, pagamentos, cancelamento,
+responsabilidades, suporte, atualizações, privacidade e legislação aplicável.

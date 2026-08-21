@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#061019">
+  <meta name="description" content="Gestor PRO: organize clientes, mensalidades, cobranças, agenda e financeiro no computador e no Android.">
+  <title>Gestor PRO — Gestão profissional no PC e Android</title>
+  <style>
+    :root{
+      --bg:#050b12;--bg2:#08131d;--card:#0b1823;--line:#17303b;
+      --txt:#edf8f7;--muted:#93aab3;--accent:#21d4bd;--accent2:#55f0c9;
+      --good:#39d98a;--warn:#ffc857;--danger:#ff6376;--shadow:0 24px 80px rgba(0,0,0,.34)
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:
+      radial-gradient(circle at 20% 0%,rgba(33,212,189,.12),transparent 24rem),
+      radial-gradient(circle at 85% 18%,rgba(33,212,189,.08),transparent 28rem),
+      var(--bg);color:var(--txt);line-height:1.55}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(5,11,18,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .navin{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-size:20px;font-weight:900;letter-spacing:-.03em}.logo{width:38px;height:38px;border:1px solid rgba(85,240,201,.35);border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(33,212,189,.18),rgba(33,212,189,.04));color:var(--accent2)}
+    .brand b{color:var(--accent2)}.links{display:flex;align-items:center;gap:22px;color:#b6c8ce;font-size:14px}.links a:hover{color:white}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 20px;border-radius:12px;font-weight:800;border:1px solid rgba(255,255,255,.10);background:#0e1c27;transition:.2s}
+    .btn:hover{transform:translateY(-1px);border-color:rgba(85,240,201,.4)}.btn.primary{color:#001411;background:linear-gradient(135deg,var(--accent2),var(--accent));border:0;box-shadow:0 12px 38px rgba(33,212,189,.20)}
+    .hero{padding:92px 0 58px}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border-radius:999px;border:1px solid rgba(85,240,201,.22);background:rgba(33,212,189,.07);color:#aef8e6;font-size:13px;font-weight:800}
+    h1{font-size:clamp(45px,6vw,78px);line-height:.98;letter-spacing:-.055em;margin:22px 0 22px}h1 span{color:var(--accent2)}
+    .lead{font-size:19px;color:#aec1c8;max-width:680px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 26px}
+    .trustline{display:flex;flex-wrap:wrap;gap:18px;color:#8fa5ad;font-size:13px}.trustline span:before{content:"✓";color:var(--good);font-weight:900;margin-right:7px}
+    .device{position:relative}.glow{position:absolute;inset:10% 8%;filter:blur(60px);background:rgba(33,212,189,.18)}
+    .screen{position:relative;border-radius:20px;padding:8px;background:linear-gradient(145deg,#16303d,#08121a);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.10);transform:perspective(1200px) rotateY(-5deg) rotateX(2deg)}
+    .screen img{width:100%;display:block;border-radius:14px}.floating{position:absolute;right:-22px;bottom:-24px;width:190px;background:rgba(9,22,31,.95);border:1px solid #23414b;border-radius:16px;padding:15px;box-shadow:var(--shadow)}.floating strong{display:block;font-size:24px;color:var(--accent2)}
+    .section{padding:86px 0}.section.alt{background:linear-gradient(180deg,rgba(255,255,255,.018),transparent)}
+    .head{max-width:740px;margin:0 auto 42px;text-align:center}.kicker{color:var(--accent2);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.head h2{font-size:clamp(32px,4vw,50px);letter-spacing:-.045em;line-height:1.05;margin:12px 0}.head p{color:var(--muted);font-size:17px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:24px;border:1px solid rgba(255,255,255,.075);border-radius:18px;background:linear-gradient(145deg,rgba(13,28,39,.88),rgba(8,17,25,.88));box-shadow:0 12px 40px rgba(0,0,0,.12)}
+    .ico{width:45px;height:45px;border-radius:13px;background:rgba(33,212,189,.10);border:1px solid rgba(85,240,201,.18);display:grid;place-items:center;margin-bottom:18px;font-size:20px}.card h3{margin:0 0 8px;font-size:19px}.card p{margin:0;color:var(--muted)}
+    .proof{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:center}.proof-image{border:1px solid rgba(255,255,255,.08);background:#07111a;padding:8px;border-radius:20px;box-shadow:var(--shadow)}.proof-image img{display:block;width:100%;border-radius:13px}
+    .checks{display:grid;gap:14px;margin-top:24px}.check{display:flex;gap:13px}.check i{font-style:normal;color:var(--accent2);font-weight:900}.check p{margin:2px 0 0;color:var(--muted)}
+    .versions{display:grid;grid-template-columns:1fr 1fr;gap:20px}.version{padding:31px;border-radius:22px;border:1px solid rgba(255,255,255,.09);background:#09151f;position:relative;overflow:hidden}.version:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-100px;top:-100px;background:rgba(33,212,189,.08)}.os{font-size:13px;color:var(--accent2);font-weight:900;text-transform:uppercase;letter-spacing:.11em}.version h3{font-size:30px;margin:10px 0}.version p{color:var(--muted)}.version ul{padding-left:18px;color:#c7d6da}.version .btn{margin-top:10px;width:100%}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px}.gallery figure{margin:0;background:#08131b;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden}.gallery img{display:block;width:100%}.gallery figcaption{padding:15px 18px;color:#9cb0b7;font-size:14px}
+    .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{padding:22px;border-top:2px solid rgba(85,240,201,.25);background:rgba(255,255,255,.025);border-radius:4px 4px 16px 16px}.step:before{counter-increment:s;content:"0" counter(s);display:block;color:var(--accent2);font-size:13px;font-weight:900;margin-bottom:14px}.step b{display:block;margin-bottom:7px}.step span{color:var(--muted);font-size:14px}
+    .cta{padding:44px;border:1px solid rgba(85,240,201,.20);border-radius:24px;background:radial-gradient(circle at 90% 0%,rgba(33,212,189,.15),transparent 40%),#09151f;display:flex;align-items:center;justify-content:space-between;gap:30px}.cta h2{font-size:38px;line-height:1.05;letter-spacing:-.04em;margin:0 0 10px}.cta p{margin:0;color:var(--muted)}
+    details{border-bottom:1px solid rgba(255,255,255,.08);padding:18px 0}summary{cursor:pointer;font-weight:800}details p{color:var(--muted);max-width:880px}
+    footer{border-top:1px solid rgba(255,255,255,.07);padding:32px 0 50px;color:#78909a;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .notice{font-size:12px;color:#7f969e;margin-top:12px}
+    @media(max-width:900px){.links a:not(.navcta){display:none}.hero-grid,.proof,.versions{grid-template-columns:1fr}.hero{padding-top:58px}.screen{transform:none}.floating{right:10px}.grid3{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.wrap{width:min(100% - 24px,1180px)}.grid3,.steps{grid-template-columns:1fr}.hero-actions .btn{width:100%}.floating{position:relative;right:auto;bottom:auto;width:100%;margin-top:12px}.section{padding:65px 0}.cta{padding:28px}.navin{height:66px}.links{gap:8px}.brand{font-size:18px}}
+  
+    .showcase{display:grid;gap:76px}
+    .feature-row{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+    .feature-row:nth-child(even) .feature-shot{order:2}
+    .feature-shot{position:relative;padding:7px;border-radius:20px;background:linear-gradient(145deg,#17313d,#071018);border:1px solid rgba(255,255,255,.09);box-shadow:var(--shadow)}
+    .feature-shot img{width:100%;display:block;border-radius:14px}
+    .feature-copy .num{font-size:12px;color:var(--accent2);font-weight:900;letter-spacing:.15em}
+    .feature-copy h3{font-size:clamp(29px,3vw,42px);line-height:1.04;letter-spacing:-.04em;margin:10px 0 14px}
+    .feature-copy>p{color:var(--muted);font-size:16px}
+    .mini-list{display:grid;gap:11px;margin-top:20px}.mini{display:flex;gap:11px;align-items:flex-start}.mini b{font-size:14px}.mini span{display:block;color:var(--muted);font-size:13px;margin-top:2px}.dot{flex:0 0 26px;height:26px;border-radius:8px;display:grid;place-items:center;background:rgba(33,212,189,.10);color:var(--accent2);font-weight:900}
+    .platform-demo{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}.platform-card{padding:28px;border:1px solid rgba(255,255,255,.08);border-radius:22px;background:#09151f}.platform-visual{height:330px;display:grid;place-items:center;margin:20px 0;background:radial-gradient(circle,rgba(33,212,189,.10),transparent 60%);overflow:hidden}.desktop-frame{width:95%;padding:6px 6px 22px;background:#152630;border-radius:12px;box-shadow:0 20px 50px #000}.desktop-frame img{width:100%;display:block;border-radius:8px}.phone-frame{height:310px;width:155px;padding:8px;background:#101b22;border:2px solid #29404a;border-radius:28px;box-shadow:0 20px 50px #000;position:relative}.phone-frame:before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:48px;height:5px;border-radius:10px;background:#263943}.phone-screen{height:100%;border-radius:20px;background:linear-gradient(180deg,#07141d,#0b1b25);padding:25px 9px 10px;overflow:hidden}.phone-head{font-size:9px;font-weight:900}.phone-kpis{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}.phone-kpis i{font-style:normal;padding:7px 4px;border-radius:7px;background:#102631;font-size:7px;color:#9eb5bc}.phone-kpis strong{display:block;color:#eafffa;font-size:12px}.phone-chart{height:70px;margin-top:8px;border-radius:8px;background:linear-gradient(160deg,transparent 48%,rgba(33,212,189,.55) 49%,rgba(33,212,189,.55) 51%,transparent 52%),#0d222d}.phone-menu{display:grid;gap:5px;margin-top:8px}.phone-menu span{font-size:7px;padding:5px 6px;border-radius:6px;background:#0e222c;color:#9cb3bb}
+    .benefit-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px}.benefit-strip div{padding:18px;border:1px solid rgba(255,255,255,.07);border-radius:15px;background:rgba(255,255,255,.025)}.benefit-strip strong{display:block;color:var(--accent2);font-size:19px}.benefit-strip span{font-size:12px;color:var(--muted)}
+    @media(max-width:900px){.feature-row,.platform-demo{grid-template-columns:1fr}.feature-row:nth-child(even) .feature-shot{order:0}.benefit-strip{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.benefit-strip{grid-template-columns:1fr}.showcase{gap:52px}.platform-visual{height:280px}}
+
+  
+    .hero-premium{position:relative}
+    .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 0}
+    .hero-badges span{font-size:12px;color:#a7bbc2;padding:7px 10px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.025)}
+    .devices-stage{position:relative;min-height:500px}
+    .desktop-premium{position:absolute;left:0;top:20px;width:88%;border-radius:22px;padding:8px;background:linear-gradient(145deg,#173441,#071018);border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 100px rgba(0,0,0,.5)}
+    .desktop-premium img{width:100%;display:block;border-radius:15px}
+    .phone-premium{position:absolute;right:0;bottom:0;width:31%;min-width:155px;max-width:210px;padding:7px;background:#0d1820;border:2px solid #29414c;border-radius:31px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+    .phone-premium:before{content:"";display:block;width:42%;height:6px;border-radius:20px;background:#2a3e48;margin:2px auto 7px}
+    .phone-premium .phone-ui{aspect-ratio:9/18;border-radius:23px;background:linear-gradient(180deg,#07131b,#0a1d27);padding:13px 9px;overflow:hidden}
+    .phone-ui .minihead{font-size:8px;font-weight:900}.phone-ui .tiny{font-size:6px;color:#7f98a2}
+    .phone-ui .mkpi{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}.phone-ui .mkpi span{background:#10242d;border-radius:7px;padding:6px;font-size:6px;color:#88a3ac}.phone-ui .mkpi b{display:block;font-size:11px;color:#fff;margin-top:2px}
+    .phone-ui .mchart{height:58px;border-radius:8px;margin-top:7px;background:linear-gradient(155deg,transparent 47%,rgba(85,240,201,.75) 48%,rgba(85,240,201,.75) 50%,transparent 51%),#0c2029}
+    .phone-ui .mnav{display:grid;gap:4px;margin-top:7px}.phone-ui .mnav span{font-size:6px;background:#0d222c;color:#9db3bb;border-radius:6px;padding:5px}
+    .proof-chip{position:absolute;left:6%;bottom:14px;background:rgba(6,17,24,.95);border:1px solid rgba(85,240,201,.22);border-radius:14px;padding:13px 15px;box-shadow:var(--shadow)}.proof-chip b{display:block;color:var(--accent2);font-size:18px}.proof-chip small{color:#8fa7af}
+    .gallery figure{cursor:zoom-in;transition:.2s}.gallery figure:hover,.feature-shot:hover{transform:translateY(-2px);border-color:rgba(85,240,201,.28)}
+    .zoomable{cursor:zoom-in;transition:.2s}
+    .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:24px}
+    .lightbox.open{display:flex}.lightbox img{max-width:min(1400px,94vw);max-height:90vh;border-radius:14px;box-shadow:0 30px 120px #000}.lightbox button{position:absolute;right:24px;top:20px;width:44px;height:44px;border:0;border-radius:50%;background:#13232c;color:white;font-size:24px;cursor:pointer}
+    .price-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:stretch}
+    .price-card,.support-card,.official-card{border:1px solid rgba(255,255,255,.08);border-radius:22px;background:#09151f;padding:30px}
+    .price-card.featured{border-color:rgba(85,240,201,.28);background:radial-gradient(circle at 90% 0%,rgba(33,212,189,.13),transparent 35%),#09151f}
+    .price-big{font-size:46px;letter-spacing:-.05em;font-weight:950;margin:12px 0}.price-big small{font-size:15px;color:var(--muted);font-weight:700;letter-spacing:0}
+    .incl{display:grid;gap:10px;margin:20px 0}.incl span{color:#c7d6da}.incl span:before{content:"✓";color:var(--accent2);font-weight:900;margin-right:9px}
+    .support-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-row{display:flex;gap:12px;align-items:flex-start;margin-top:16px}.contact-row .ico{margin:0;flex:0 0 45px}.contact-row small{display:block;color:var(--muted);margin-top:3px}
+    .legal-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}.legal-links a{color:#a9bec5;text-decoration:underline;text-decoration-color:#31515c;text-underline-offset:4px}
+    .credibility{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}.credibility div{padding:17px;border-radius:14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.022)}.credibility b{display:block}.credibility span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+    .smallprint{color:#6f8790;font-size:11px;margin-top:14px}
+    @media(max-width:900px){.devices-stage{min-height:430px}.price-grid,.support-grid{grid-template-columns:1fr}.credibility{grid-template-columns:1fr}}
+    @media(max-width:560px){.devices-stage{min-height:360px}.desktop-premium{width:100%}.phone-premium{width:38%;right:2%;}.proof-chip{left:0;bottom:0}.price-big{font-size:38px}}
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#"><span class="logo">↗</span><span>GESTOR <b>PRO</b></span></a>
+    <div class="links">
+      <a href="#recursos">Recursos</a><a href="#demonstracao">Como funciona</a><a href="#versoes">Versões</a><a href="#assinatura">Assinatura</a><a href="#suporte">Suporte</a><a href="#faq">Dúvidas</a>
+      <a class="btn primary navcta" href="#downloads">Baixar agora</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">● Windows + Android</span>
+      <h1>Sua gestão mais simples. Seu negócio mais <span>profissional.</span></h1>
+      <p class="lead">O Gestor PRO reúne clientes, mensalidades, cobranças, agenda, financeiro, histórico e informações importantes em uma experiência moderna para computador e Android.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#downloads">↓ Baixar Gestor PRO</a>
+        <a class="btn" href="#demonstracao">▶ Ver como funciona</a>
+      </div>
+      <div class="trustline"><span>Instalador oficial</span><span>Atualizações do sistema</span><span>Suporte integrado</span></div><div class="hero-badges"><span>Gestão de clientes</span><span>Mensalidades</span><span>Financeiro</span><span>Agenda</span><span>Histórico</span></div>
+    </div>
+    <div class="device hero-premium">
+      <div class="glow"></div>
+      <div class="devices-stage">
+        <div class="desktop-premium"><img class="zoomable" src="assets/painel-gestor-pro.png" alt="Gestor PRO no computador"></div>
+        <div class="phone-premium">
+          <div class="phone-ui">
+            <div class="minihead">GESTOR <span style="color:var(--accent2)">PRO</span></div>
+            <div class="tiny">Seu negócio sob controle hoje.</div>
+            <div class="mkpi"><span>CLIENTES<b>26</b></span><span>EM DIA<b>18</b></span><span>VENCENDO<b>3</b></span><span>VENCIDOS<b>5</b></span></div>
+            <div class="mchart"></div>
+            <div class="mnav"><span>👥 Clientes</span><span>◷ Agenda</span><span>R$ Financeiro</span><span>🔔 Notificações</span></div>
+          </div>
+        </div>
+        <div class="proof-chip"><b>PC + Android</b><small>Uma experiência pensada para cada tela.</small></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section alt" id="recursos">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Tudo em um só lugar</div><h2>Menos controles espalhados. Mais clareza no dia a dia.</h2><p>O painel foi pensado para deixar as informações importantes visíveis e transformar tarefas repetitivas em uma rotina mais organizada.</p></div>
+    <div class="grid3">
+      <article class="card"><div class="ico">👥</div><h3>Clientes organizados</h3><p>Cadastre, encontre e acompanhe informações importantes da sua carteira em um único ambiente.</p></article>
+      <article class="card"><div class="ico">R$</div><h3>Mensalidades e pagamentos</h3><p>Acompanhe vencimentos, pagamentos, valores recebidos e histórico financeiro com mais clareza.</p></article>
+      <article class="card"><div class="ico">🔔</div><h3>Cobranças e lembretes</h3><p>Identifique rapidamente quem precisa de atenção e tenha atalhos para sua rotina de cobrança.</p></article>
+      <article class="card"><div class="ico">↗</div><h3>Indicadores e gráficos</h3><p>Veja receita, situação da carteira e evolução dos resultados sem depender de planilhas separadas.</p></article>
+      <article class="card"><div class="ico">◷</div><h3>Agenda e prioridades</h3><p>Organize compromissos e acompanhe o que precisa ser feito no período.</p></article>
+      <article class="card"><div class="ico">⚙</div><h3>Configuração do negócio</h3><p>Personalize dados da empresa e preferências para deixar a experiência adequada à sua operação.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demonstracao">
+  <div class="wrap proof">
+    <div class="proof-image"><img src="assets/painel-gestor-pro.png" alt="Dashboard do Gestor PRO mostrando clientes, receita e vencimentos"></div>
+    <div>
+      <div class="kicker">Na prática</div>
+      <h2 style="font-size:42px;line-height:1.05;letter-spacing:-.04em;margin:12px 0 14px">Abra o sistema e entenda rapidamente como está seu negócio.</h2>
+      <p style="color:var(--muted)">O painel concentra indicadores como clientes ativos, situação dos pagamentos, vencimentos próximos e receita. Assim, você sabe onde olhar primeiro e o que precisa de ação.</p>
+      <div class="checks">
+        <div class="check"><i>✓</i><div><b>Visão geral imediata</b><p>Indicadores importantes logo na abertura.</p></div></div>
+        <div class="check"><i>✓</i><div><b>Financeiro visual</b><p>Gráfico para acompanhar a evolução da receita.</p></div></div>
+        <div class="check"><i>✓</i><div><b>Atenção ao que importa</b><p>Vencimentos e pendências ganham destaque.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Demonstrações visuais</div><h2>Veja o Gestor PRO antes de instalar.</h2><p>Imagens do projeto mostram o painel e os principais recursos para você entender a proposta do sistema antes do download.</p></div>
+    <div class="gallery">
+      <figure><img class="zoomable" src="assets/apresentacao-gestor-pro.png" alt="Apresentação visual das funções do Gestor PRO"><figcaption>Visão geral do produto, painel, clientes, mensalidades e recursos.</figcaption></figure>
+      <figure><img class="zoomable" src="assets/recursos-gestor-pro.png" alt="Infográfico com recursos do Gestor PRO"><figcaption>Exemplos de telas e fluxo de uso do Gestor PRO em uma apresentação completa.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="section alt" id="recursos-na-pratica">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Recursos na prática</div>
+      <h2>Não é só uma lista de funções. Veja como o Gestor PRO trabalha.</h2>
+      <p>Cada área foi pensada para responder perguntas simples da rotina: quem está em dia, quem vence em breve, quanto entrou, quem precisa de atenção e o que fazer agora.</p>
+    </div>
+    <div class="showcase">
+      <div class="feature-row">
+        <div class="feature-shot"><img class="zoomable" src="assets/painel-completo.png" alt="Painel completo do Gestor PRO"></div>
+        <div class="feature-copy"><div class="num">01 · PAINEL</div><h3>Comece o dia sabendo onde sua atenção é necessária.</h3><p>O painel reúne os principais números da operação em uma única visão para reduzir consultas espalhadas e facilitar decisões rápidas.</p><div class="mini-list">
+          <div class="mini"><div class="dot">✓</div><div><b>Clientes e situação da carteira</b><span>Veja ativos, em dia, próximos do vencimento e vencidos.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Receita em destaque</b><span>Acompanhe o valor recebido e a evolução visual por período.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Prioridade visual</b><span>Informações importantes aparecem sem precisar procurar em várias telas.</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-shot"><img class="zoomable" src="assets/clientes-mensalidades.png" alt="Gestão de clientes e mensalidades do Gestor PRO"></div>
+        <div class="feature-copy"><div class="num">02 · CLIENTES</div><h3>Sua carteira organizada e fácil de consultar.</h3><p>Centralize o cadastro e acompanhe as informações que fazem parte do relacionamento e da cobrança de cada cliente.</p><div class="mini-list">
+          <div class="mini"><div class="dot">✓</div><div><b>Busca e organização</b><span>Encontre clientes com mais rapidez.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Status visível</b><span>Identifique a situação do cliente sem controles paralelos.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Histórico</b><span>Mantenha registros importantes ligados à rotina da carteira.</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-shot"><img class="zoomable" src="assets/financeiro-cobrancas.png" alt="Financeiro e cobranças no Gestor PRO"></div>
+        <div class="feature-copy"><div class="num">03 · FINANCEIRO</div><h3>Do vencimento ao pagamento, com mais controle.</h3><p>Visualize o que foi recebido, acompanhe mensalidades e mantenha o fluxo de cobrança mais organizado.</p><div class="mini-list">
+          <div class="mini"><div class="dot">✓</div><div><b>Acompanhamento de pagamentos</b><span>Registre e consulte a situação financeira.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Receita por período</b><span>Use indicadores e gráficos para entender a evolução.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Cobrança mais prática</b><span>Tenha as pendências organizadas para saber quem precisa de contato.</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-shot"><img class="zoomable" src="assets/rotina-recursos.png" alt="Agenda, notificações e recursos do Gestor PRO"></div>
+        <div class="feature-copy"><div class="num">04 · ROTINA</div><h3>Agenda, alertas e tarefas importantes no mesmo ambiente.</h3><p>O Gestor PRO ajuda a transformar informações em uma rotina de acompanhamento, reduzindo o risco de esquecer vencimentos e ações importantes.</p><div class="mini-list">
+          <div class="mini"><div class="dot">✓</div><div><b>Agenda</b><span>Organize compromissos e prioridades.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Notificações</b><span>Concentre alertas importantes do sistema.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Histórico de atividades</b><span>Tenha mais contexto sobre ações realizadas.</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-shot"><img class="zoomable" src="assets/suporte-configuracoes.png" alt="Configurações e suporte do Gestor PRO"></div>
+        <div class="feature-copy"><div class="num">05 · CONFIGURAÇÕES E SUPORTE</div><h3>Um sistema preparado para o uso diário do seu negócio.</h3><p>Configure informações da empresa e encontre suporte sem precisar navegar por caminhos complicados.</p><div class="mini-list">
+          <div class="mini"><div class="dot">✓</div><div><b>Dados da empresa</b><span>Organize as principais informações do seu negócio.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Personalização</b><span>Adapte preferências e identidade para sua operação.</span></div></div>
+          <div class="mini"><div class="dot">✓</div><div><b>Central de suporte</b><span>Acesso facilitado ao atendimento quando precisar.</span></div></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="benefit-strip">
+      <div><strong>1 lugar</strong><span>para centralizar a gestão</span></div>
+      <div><strong>PC + Android</strong><span>para acompanhar a rotina</span></div>
+      <div><strong>Visão rápida</strong><span>dos pontos que precisam de atenção</span></div>
+      <div><strong>Menos planilhas</strong><span>e controles espalhados</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experiencia">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Duas experiências</div><h2>Mais espaço no PC. Mais mobilidade no Android.</h2><p>Use o formato que combina com o momento da sua rotina.</p></div>
+    <div class="platform-demo">
+      <article class="platform-card">
+        <div class="os">No computador</div><h3 style="font-size:28px;margin:8px 0">Visão completa para administrar</h3><p style="color:var(--muted)">Ideal para trabalhar com clientes, indicadores e financeiro usando uma tela maior.</p>
+        <div class="platform-visual"><div class="desktop-frame"><img src="assets/painel-gestor-pro.png" alt="Gestor PRO no computador"></div></div>
+        <a class="btn" href="#downloads">Conhecer versão Windows →</a>
+      </article>
+      <article class="platform-card">
+        <div class="os">No Android</div><h3 style="font-size:28px;margin:8px 0">Informação importante no celular</h3><p style="color:var(--muted)">Interface adaptada para consultar e acompanhar a operação em telas menores.</p>
+        <div class="platform-visual"><div class="phone-frame"><div class="phone-screen"><div class="phone-head">GESTOR <span style="color:var(--accent2)">PRO</span><br><small style="color:#78919a">Visão geral</small></div><div class="phone-kpis"><i>CLIENTES<strong>26</strong></i><i>EM DIA<strong>18</strong></i><i>VENCENDO<strong>3</strong></i><i>VENCIDOS<strong>5</strong></i></div><div class="phone-chart"></div><div class="phone-menu"><span>👥 Clientes</span><span>◷ Agenda</span><span>R$ Financeiro</span><span>🔔 Notificações</span></div></div></div></div>
+        <a class="btn" href="#downloads">Conhecer versão Android →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="versoes">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Escolha onde usar</div><h2>Gestor PRO no computador e no Android.</h2><p>Duas versões para permitir que sua gestão acompanhe a sua rotina.</p></div>
+    <div class="versions" id="downloads">
+      <article class="version">
+        <div class="os">Windows</div><h3>Gestor PRO para PC</h3>
+        <p>Ideal para trabalhar com mais espaço de tela, acompanhar indicadores e administrar a operação no computador.</p>
+        <ul><li>Instalação por arquivo .exe</li><li>Atalho no computador</li><li>Interface completa para desktop</li><li>Atualizações sem precisar refazer seus controles</li></ul>
+        <a class="btn primary" href="downloads/Gestor-Pro-Setup.exe" download>↓ Baixar para Windows</a>
+        <div class="notice">Coloque o instalador oficial com o nome <b>Gestor-Pro-Setup.exe</b> na pasta downloads.</div>
+      </article>
+      <article class="version">
+        <div class="os">Android</div><h3>Gestor PRO para celular</h3>
+        <p>Leve as informações importantes com você e acesse uma interface adaptada para telas menores.</p>
+        <ul><li>Instalação pelo APK oficial</li><li>Layout adaptado para celular</li><li>Atualizações pelo próprio fluxo do app</li><li>Acesso rápido durante a rotina</li></ul>
+        <a class="btn primary" href="downloads/Gestor-Pro.apk" download>↓ Baixar para Android</a>
+        <div class="notice">Coloque o APK oficial com o nome <b>Gestor-Pro.apk</b> na pasta downloads.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Como começar</div><h2>Do download ao primeiro acesso em poucos passos.</h2></div>
+    <div class="steps">
+      <div class="step"><b>Escolha sua versão</b><span>Windows no computador ou Android no celular.</span></div>
+      <div class="step"><b>Baixe pelo site oficial</b><span>Use sempre os links disponibilizados nesta página.</span></div>
+      <div class="step"><b>Instale o Gestor PRO</b><span>Siga as instruções do Windows ou do Android.</span></div>
+      <div class="step"><b>Entre na sua conta</b><span>Acesse o sistema e comece a organizar sua gestão.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap cta">
+    <div><h2>Quer transformar sua rotina de gestão?</h2><p>Conheça o Gestor PRO e escolha a versão ideal para você.</p></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="#downloads">Baixar agora</a><a class="btn" href="https://mpago.la/1cLXxPQ" rel="noopener">Assinar Gestor PRO</a></div>
+  </div>
+</section>
+
+
+<section class="section alt" id="assinatura">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Assinatura</div><h2>Um plano simples para usar o Gestor PRO.</h2><p>Sem uma tabela confusa de versões. A proposta é manter uma experiência direta para quem quer organizar a gestão.</p></div>
+    <div class="price-grid">
+      <article class="price-card featured">
+        <div class="os">Gestor PRO mensal</div>
+        <div class="price-big">R$ 39,90 <small>/ mês</small></div>
+        <p style="color:var(--muted)">Assinatura mensal do Gestor PRO.</p>
+        <div class="incl">
+          <span>Acesso ao Gestor PRO</span><span>Versão para Windows</span><span>Versão para Android</span><span>Atualizações disponibilizadas para o sistema</span><span>Central de suporte</span>
+        </div>
+        <a class="btn primary" style="width:100%" href="https://mpago.la/1cLXxPQ" rel="noopener">Assinar Gestor PRO</a>
+        <p class="smallprint">O link de pagamento pode ser substituído pelo checkout definitivo antes da publicação.</p>
+      </article>
+      <article class="official-card">
+        <div class="kicker">Compra com mais clareza</div>
+        <h3 style="font-size:30px;line-height:1.08;margin:10px 0 12px">Saiba exatamente o que você está instalando.</h3>
+        <p style="color:var(--muted)">Este site concentra apresentação, demonstrações, assinatura e download oficial das versões disponíveis. Isso facilita identificar o canal correto antes de instalar qualquer arquivo.</p>
+        <div class="credibility">
+          <div><b>Download centralizado</b><span>Windows e Android no mesmo domínio oficial.</span></div>
+          <div><b>Versões identificadas</b><span>Espaço preparado para informar versão e atualização atual.</span></div>
+          <div><b>Suporte acessível</b><span>Canal de atendimento próximo ao download e à assinatura.</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="suporte">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Suporte e informações oficiais</div><h2>Ajuda fácil de encontrar quando você precisar.</h2><p>Use os canais oficiais abaixo sempre que precisar de ajuda com o Gestor PRO.</p></div>
+    <div class="support-grid">
+      <article class="support-card">
+        <h3 style="font-size:27px;margin:0 0 8px">Fale com o suporte</h3>
+        <p style="color:var(--muted)">Entre em contato pelos canais oficiais do Gestor PRO.</p>
+        <div class="contact-row"><div class="ico">W</div><div><b>WhatsApp</b><small><a href="https://wa.me/5514998539797" target="_blank" rel="noopener">(14) 99853-9797</a></small></div></div>
+        <div class="contact-row"><div class="ico">@</div><div><b>E-mail</b><small><a href="mailto:joaovitordc1010@gmail.com">joaovitordc1010@gmail.com</a></small></div></div>
+        <div class="contact-row"><div class="ico">◷</div><div><b>Horário de atendimento</b><small>Adicionar dias e horários de suporte</small></div></div>
+        <a class="btn primary" style="width:100%;margin-top:22px" href="https://wa.me/5514998539797" target="_blank" rel="noopener">Falar com o suporte no WhatsApp</a>
+      </article>
+      <article class="support-card">
+        <h3 style="font-size:27px;margin:0 0 8px">Informações do produto</h3>
+        <p style="color:var(--muted)">Baixe o Gestor PRO somente por este site e consulte os documentos oficiais quando necessário.</p>
+        
+        <div class="contact-row"><div class="ico">↓</div><div><b>Origem do instalador</b><small>Baixe somente pelos links oficiais deste domínio.</small></div></div>
+        <div class="contact-row"><div class="ico">i</div><div><b>Documentos</b><small>Termos de Uso e Política de Privacidade.</small></div></div>
+        <div class="legal-links"><a href="#">Termos de Uso</a><a href="#">Política de Privacidade</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="faq">
+  <div class="wrap">
+    <div class="head"><div class="kicker">Perguntas frequentes</div><h2>Informações importantes antes de instalar.</h2></div>
+    <details><summary>O Gestor PRO funciona no computador?</summary><p>Sim. A versão para Windows é distribuída por instalador e foi pensada para uso em desktop.</p></details>
+    <details><summary>Existe versão para Android?</summary><p>Sim. A versão Android é instalada pelo APK oficial disponibilizado nesta página.</p></details>
+    <details><summary>O Android pode mostrar um aviso ao instalar o APK?</summary><p>Sim. Como o APK pode ser distribuído fora da Play Store, o Android pode solicitar permissão para instalar aplicativos dessa fonte. Só prossiga quando o arquivo tiver sido baixado pelo canal oficial do Gestor PRO.</p></details>
+    <details><summary>Preciso desinstalar para atualizar?</summary><p>Em uma atualização normal, não. A nova versão deve ser instalada sobre a versão existente, seguindo as orientações apresentadas pelo sistema.</p></details>
+    <details><summary>Onde consigo suporte?</summary><p>O Gestor PRO possui uma Central de Suporte integrada. Você também pode adicionar aqui seu WhatsApp, e-mail e horário de atendimento.</p></details>
+    <details><summary>Os dados mostrados nas imagens são exemplos?</summary><p>Sim. As telas servem para demonstrar a interface e os recursos do sistema. Valores, nomes e indicadores exibidos podem ser ilustrativos.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot"><span>© 2026 Gestor PRO. Todos os direitos reservados.</span><span>Suporte: (14) 99853-9797 • joaovitordc1010@gmail.com</span></div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" aria-label="Fechar">×</button>
+  <img src="" alt="Demonstração ampliada do Gestor PRO">
+</div>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const href=a.getAttribute('href'); if(href==="#") return;
+    const el=document.querySelector(href); if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'})}
+  }));
+  const lb=document.getElementById('lightbox'), lbimg=lb.querySelector('img');
+  document.querySelectorAll('.zoomable').forEach(img=>img.addEventListener('click',()=>{
+    lbimg.src=img.src; lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+  }));
+  const closeLb=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbimg.src='';};
+  lb.querySelector('button').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{if(e.target===lb) closeLb()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') closeLb()});
+</script>
+</body>
+</html>
