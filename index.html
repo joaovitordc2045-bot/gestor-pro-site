@@ -322,15 +322,15 @@
         <div class="os">Windows</div><h3>Gestor PRO para PC</h3>
         <p>Ideal para trabalhar com mais espaço de tela, acompanhar indicadores e administrar a operação no computador.</p>
         <ul><li>Instalação por arquivo .exe</li><li>Atalho no computador</li><li>Interface completa para desktop</li><li>Atualizações sem precisar refazer seus controles</li></ul>
-        <a class="btn primary" href="downloads/Gestor-Pro-Setup-1.0.6.exe">↓ Baixar para Windows — v1.0.6</a>
-        <div class="notice">Versão atual: <b>Windows 1.0.6</b> • Download direto pelo domínio oficial gestorpro.log.br.</div>
+        <a class="btn primary" id="downloadWindows" href="downloads/Gestor-Pro-Setup-1.0.6.exe">↓ Baixar para Windows — v1.0.6</a>
+        <div class="notice">Versão atual: <b id="versionWindows">Windows 1.0.6</b> • Download direto pelo domínio oficial gestorpro.log.br.</div>
       </article>
       <article class="version">
         <div class="os">Android</div><h3>Gestor PRO para celular</h3>
         <p>Leve as informações importantes com você e acesse uma interface adaptada para telas menores.</p>
         <ul><li>Instalação pelo APK oficial</li><li>Layout adaptado para celular</li><li>Atualizações pelo próprio fluxo do app</li><li>Acesso rápido durante a rotina</li></ul>
-        <a class="btn primary" href="downloads/Gestor-Pro-Android-0.2.12.apk">↓ Baixar para Android — v0.2.12</a>
-        <div class="notice">Versão atual: <b>Android 0.2.12</b> • Download direto pelo domínio oficial gestorpro.log.br.</div>
+        <a class="btn primary" id="downloadAndroid" href="downloads/Gestor-Pro-Android-0.2.12.apk">↓ Baixar para Android — v0.2.12</a>
+        <div class="notice">Versão atual: <b id="versionAndroid">Android 0.2.12</b> • Download direto pelo domínio oficial gestorpro.log.br.</div>
       </article>
     </div>
   </div>
@@ -443,6 +443,40 @@
   lb.querySelector('button').addEventListener('click',closeLb);
   lb.addEventListener('click',e=>{if(e.target===lb) closeLb()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape') closeLb()});
+
+  // Versões e links de download são carregados automaticamente de versions.json.
+  async function loadCurrentVersions(){
+    try{
+      const response = await fetch(`versions.json?v=${Date.now()}`, {cache:'no-store'});
+      if(!response.ok) throw new Error(`HTTP ${response.status}`);
+      const versions = await response.json();
+
+      const winVersion = String(versions?.windows?.version || '').trim();
+      const winFile = String(versions?.windows?.file || '').trim();
+      const androidVersion = String(versions?.android?.version || '').trim();
+      const androidFile = String(versions?.android?.file || '').trim();
+
+      const winBtn = document.getElementById('downloadWindows');
+      const winText = document.getElementById('versionWindows');
+      if(winVersion && winFile && winBtn && winText){
+        winBtn.href = `downloads/${encodeURIComponent(winFile)}`;
+        winBtn.textContent = `↓ Baixar para Windows — v${winVersion}`;
+        winText.textContent = `Windows ${winVersion}`;
+      }
+
+      const androidBtn = document.getElementById('downloadAndroid');
+      const androidText = document.getElementById('versionAndroid');
+      if(androidVersion && androidFile && androidBtn && androidText){
+        androidBtn.href = `downloads/${encodeURIComponent(androidFile)}`;
+        androidBtn.textContent = `↓ Baixar para Android — v${androidVersion}`;
+        androidText.textContent = `Android ${androidVersion}`;
+      }
+    }catch(err){
+      console.warn('Gestor PRO: não foi possível carregar versions.json; mantendo links de fallback.', err);
+    }
+  }
+  loadCurrentVersions();
+
 </script>
 </body>
 </html>
