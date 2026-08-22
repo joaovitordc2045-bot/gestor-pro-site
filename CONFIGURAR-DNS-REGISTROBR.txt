@@ -1,0 +1,33 @@
+GESTOR PRO - CONFIGURACAO UNICA DO DNS
+Dominio: gestorpro.log.br
+
+No Registro.br:
+
+1. Abra o dominio gestorpro.log.br.
+2. Na area DNS, clique em "Configurar zona DNS".
+3. Entre no modo de edicao/avancado da zona.
+4. Para o dominio principal (@), adicione estes QUATRO registros do tipo A:
+
+TIPO    NOME/HOST    VALOR
+A       @            185.199.108.153
+A       @            185.199.109.153
+A       @            185.199.110.153
+A       @            185.199.111.153
+
+Se o Registro.br deixar o campo Nome em branco para representar o dominio raiz,
+use o campo em branco em vez de @.
+
+OPCIONAL - WWW
+Para www.gestorpro.log.br, adicione:
+CNAME   www          joaovitordc2045-bot.github.io
+
+IMPORTANTE:
+- Nao clique em "Alterar servidores DNS".
+- Continue usando os servidores DNS do Registro.br.
+- Nao crie registro coringa (*).
+- Se ja existir um A, AAAA, ALIAS ou CNAME conflitante para o dominio raiz,
+  ele deve ser removido antes de apontar para o GitHub Pages.
+- A propagacao pode levar alguns minutos e, em alguns casos, ate 24 horas.
+
+Depois de salvar, execute VERIFICAR-SITE.bat ou abra:
+https://gestorpro.log.br

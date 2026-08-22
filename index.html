@@ -4,8 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#061019">
-  <meta name="description" content="Gestor PRO: organize clientes, mensalidades, cobranças, agenda e financeiro no computador e no Android.">
+  <meta name="description" content="Gestor PRO: organize clientes, mensalidades, cobranças, agenda e financeiro no PC e Android, com automação de mensagens para clientes.">
   <title>Gestor PRO — Gestão profissional no PC e Android</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="assets/favicon.ico">
   <style>
     :root{
       --bg:#050b12;--bg2:#08131d;--card:#0b1823;--line:#17303b;
@@ -92,6 +96,24 @@
     @media(max-width:900px){.devices-stage{min-height:430px}.price-grid,.support-grid{grid-template-columns:1fr}.credibility{grid-template-columns:1fr}}
     @media(max-width:560px){.devices-stage{min-height:360px}.desktop-premium{width:100%}.phone-premium{width:38%;right:2%;}.proof-chip{left:0;bottom:0}.price-big{font-size:38px}}
 
+
+    .automation-section{position:relative;overflow:hidden}
+    .automation-section:before{content:"";position:absolute;inset:auto -15% -45% 35%;height:520px;background:radial-gradient(circle,rgba(33,212,189,.12),transparent 62%);pointer-events:none}
+    .automation-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:38px;align-items:center}
+    .automation-copy h2{font-size:clamp(34px,4vw,52px);line-height:1.03;letter-spacing:-.045em;margin:12px 0 16px}
+    .automation-copy>p{color:var(--muted);font-size:17px}
+    .automation-badges{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}
+    .automation-badges span{padding:8px 11px;border-radius:999px;background:rgba(33,212,189,.07);border:1px solid rgba(85,240,201,.16);color:#bdf8e9;font-size:12px;font-weight:800}
+    .automation-flow{position:relative;padding:28px;border:1px solid rgba(85,240,201,.18);border-radius:22px;background:linear-gradient(145deg,#0b1c27,#071119);box-shadow:var(--shadow)}
+    .flow-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:22px}
+    .flow-status{font-size:11px;color:var(--good);font-weight:900;padding:6px 9px;border-radius:999px;background:rgba(57,217,138,.08);border:1px solid rgba(57,217,138,.16)}
+    .flow-list{display:grid;gap:12px}
+    .flow-item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:13px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055)}
+    .flow-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:rgba(33,212,189,.09);color:var(--accent2);font-weight:900}
+    .flow-item b{display:block;font-size:14px}.flow-item small{display:block;color:var(--muted);margin-top:2px}
+    .flow-check{color:var(--good);font-weight:900}
+    @media(max-width:900px){.automation-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -99,7 +121,7 @@
   <div class="wrap navin">
     <a class="brand" href="#"><span class="logo">↗</span><span>GESTOR <b>PRO</b></span></a>
     <div class="links">
-      <a href="#recursos">Recursos</a><a href="#demonstracao">Como funciona</a><a href="#versoes">Versões</a><a href="#assinatura">Assinatura</a><a href="#suporte">Suporte</a><a href="#faq">Dúvidas</a>
+      <a href="#recursos">Recursos</a><a href="#automacao">Automação</a><a href="#demonstracao">Como funciona</a><a href="#versoes">Versões</a><a href="#assinatura">Assinatura</a><a href="#suporte">Suporte</a><a href="#faq">Dúvidas</a>
       <a class="btn primary navcta" href="#downloads">Baixar agora</a>
     </div>
   </div>
@@ -110,12 +132,12 @@
     <div>
       <span class="eyebrow">● Windows + Android</span>
       <h1>Sua gestão mais simples. Seu negócio mais <span>profissional.</span></h1>
-      <p class="lead">O Gestor PRO reúne clientes, mensalidades, cobranças, agenda, financeiro, histórico e informações importantes em uma experiência moderna para computador e Android.</p>
+      <p class="lead">O Gestor PRO reúne clientes, mensalidades, cobranças, agenda, financeiro, histórico e automação de mensagens em uma experiência moderna para computador e Android.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#downloads">↓ Baixar Gestor PRO</a>
         <a class="btn" href="#demonstracao">▶ Ver como funciona</a>
       </div>
-      <div class="trustline"><span>Instalador oficial</span><span>Atualizações do sistema</span><span>Suporte integrado</span></div><div class="hero-badges"><span>Gestão de clientes</span><span>Mensalidades</span><span>Financeiro</span><span>Agenda</span><span>Histórico</span></div>
+      <div class="trustline"><span>Instalador oficial</span><span>Automação de mensagens</span><span>Atualizações do sistema</span><span>Suporte integrado</span></div><div class="hero-badges"><span>Gestão de clientes</span><span>Mensalidades</span><span>Automação</span><span>Financeiro</span><span>Agenda</span><span>Histórico</span></div>
     </div>
     <div class="device hero-premium">
       <div class="glow"></div>
@@ -142,10 +164,44 @@
     <div class="grid3">
       <article class="card"><div class="ico">👥</div><h3>Clientes organizados</h3><p>Cadastre, encontre e acompanhe informações importantes da sua carteira em um único ambiente.</p></article>
       <article class="card"><div class="ico">R$</div><h3>Mensalidades e pagamentos</h3><p>Acompanhe vencimentos, pagamentos, valores recebidos e histórico financeiro com mais clareza.</p></article>
-      <article class="card"><div class="ico">🔔</div><h3>Cobranças e lembretes</h3><p>Identifique rapidamente quem precisa de atenção e tenha atalhos para sua rotina de cobrança.</p></article>
+      <article class="card"><div class="ico">⚡</div><h3>Automação de mensagens</h3><p>O Gestor PRO automatiza o envio de mensagens aos clientes, reduzindo tarefas manuais e ajudando a manter o acompanhamento em dia.</p></article>
       <article class="card"><div class="ico">↗</div><h3>Indicadores e gráficos</h3><p>Veja receita, situação da carteira e evolução dos resultados sem depender de planilhas separadas.</p></article>
       <article class="card"><div class="ico">◷</div><h3>Agenda e prioridades</h3><p>Organize compromissos e acompanhe o que precisa ser feito no período.</p></article>
       <article class="card"><div class="ico">⚙</div><h3>Configuração do negócio</h3><p>Personalize dados da empresa e preferências para deixar a experiência adequada à sua operação.</p></article>
+    </div>
+  </div>
+</section>
+
+
+<section class="section automation-section" id="automacao">
+  <div class="wrap automation-grid">
+    <div class="automation-copy">
+      <div class="kicker">AUTOMAÇÃO 100% AUTOMÁTICA</div>
+      <h2>O Gestor PRO também trabalha por você.</h2>
+      <p>Além de organizar clientes e cobranças, o sistema conta com uma automação de mensagens que realiza envios aos clientes sem exigir que você faça cada contato manualmente.</p>
+      <div class="automation-badges">
+        <span>Menos trabalho manual</span>
+        <span>Mais constância no atendimento</span>
+        <span>Clientes acompanhados</span>
+        <span>Rotina mais organizada</span>
+      </div>
+      <div class="checks">
+        <div class="check"><i>✓</i><div><b>Envio automático de mensagens</b><p>O sistema executa o processo de comunicação com os clientes de forma automática.</p></div></div>
+        <div class="check"><i>✓</i><div><b>Mais tempo para administrar</b><p>Você reduz tarefas repetitivas e pode concentrar sua atenção em outras áreas do negócio.</p></div></div>
+        <div class="check"><i>✓</i><div><b>Automação integrada ao Gestor PRO</b><p>A comunicação faz parte da própria rotina de gestão, junto de clientes, mensalidades e cobranças.</p></div></div>
+      </div>
+    </div>
+    <div class="automation-flow" aria-label="Demonstração visual da automação de mensagens">
+      <div class="flow-head">
+        <div><div class="os">AUTOMAÇÃO</div><h3 style="margin:5px 0 0;font-size:25px">Mensagens sendo processadas</h3></div>
+        <span class="flow-status">● Automação ativa</span>
+      </div>
+      <div class="flow-list">
+        <div class="flow-item"><div class="flow-icon">01</div><div><b>Cliente identificado</b><small>O Gestor PRO acompanha a rotina da carteira.</small></div><div class="flow-check">✓</div></div>
+        <div class="flow-item"><div class="flow-icon">02</div><div><b>Mensagem preparada</b><small>O processo acontece automaticamente pelo sistema.</small></div><div class="flow-check">✓</div></div>
+        <div class="flow-item"><div class="flow-icon">03</div><div><b>Envio realizado</b><small>O contato é feito sem depender de uma ação manual a cada cliente.</small></div><div class="flow-check">✓</div></div>
+      </div>
+      <p class="smallprint">Demonstração visual do fluxo de automação. O funcionamento exato segue as configurações e recursos disponíveis no Gestor PRO.</p>
     </div>
   </div>
 </section>
@@ -309,7 +365,7 @@
         <div class="price-big">R$ 39,90 <small>/ mês</small></div>
         <p style="color:var(--muted)">Assinatura mensal do Gestor PRO.</p>
         <div class="incl">
-          <span>Acesso ao Gestor PRO</span><span>Versão para Windows</span><span>Versão para Android</span><span>Atualizações disponibilizadas para o sistema</span><span>Central de suporte</span>
+          <span>Acesso ao Gestor PRO</span><span>Automação de mensagens</span><span>Versão para Windows</span><span>Versão para Android</span><span>Atualizações disponibilizadas para o sistema</span><span>Central de suporte</span>
         </div>
         <a class="btn primary" style="width:100%" href="https://mpago.la/1cLXxPQ" rel="noopener">Assinar Gestor PRO</a>
         <p class="smallprint">O link de pagamento pode ser substituído pelo checkout definitivo antes da publicação.</p>
@@ -355,6 +411,7 @@
 <section class="section alt" id="faq">
   <div class="wrap">
     <div class="head"><div class="kicker">Perguntas frequentes</div><h2>Informações importantes antes de instalar.</h2></div>
+    <details><summary>O Gestor PRO envia mensagens automaticamente para os clientes?</summary><p>Sim. O sistema possui automação de mensagens para reduzir tarefas manuais e ajudar no acompanhamento da carteira de clientes.</p></details>
     <details><summary>O Gestor PRO funciona no computador?</summary><p>Sim. A versão para Windows é distribuída por instalador e foi pensada para uso em desktop.</p></details>
     <details><summary>Existe versão para Android?</summary><p>Sim. A versão Android é instalada pelo APK oficial disponibilizado nesta página.</p></details>
     <details><summary>O Android pode mostrar um aviso ao instalar o APK?</summary><p>Sim. Como o APK pode ser distribuído fora da Play Store, o Android pode solicitar permissão para instalar aplicativos dessa fonte. Só prossiga quando o arquivo tiver sido baixado pelo canal oficial do Gestor PRO.</p></details>
