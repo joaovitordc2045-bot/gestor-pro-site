@@ -1,11 +1,11 @@
 ﻿{
-    "updatedAt":  "2026-08-23T07:00:48-03:00",
+    "updatedAt":  "2026-08-23T07:42:03-03:00",
     "windows":  {
-                    "version":  "1.0.10",
-                    "file":  "Gestor-Pro-Setup-1.0.10.exe"
+                    "version":  "1.0.11",
+                    "file":  "Gestor-Pro-Setup-1.0.11.exe"
                 },
     "android":  {
-                    "version":  "0.2.13",
-                    "file":  "Gestor-Pro-Android-0.2.13.apk"
+                    "version":  "0.2.14",
+                    "file":  "Gestor-Pro-Android-0.2.14.apk"
                 }
 }
