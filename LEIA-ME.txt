@@ -1,11 +1,17 @@
-GESTOR PRO - ATUALIZADOR DO SITE
+GESTOR PRO - GOOGLE ANALYTICS 4
 
-Use este atualizador daqui para frente.
+ID instalado:
+G-5LCE0WNWHQ
 
-IMPORTANTE:
-- Coloque ATUALIZAR-SITE.bat e ATUALIZAR-SITE.ps1 dentro da MESMA pasta do site.
-- O index.html e a pasta assets devem estar nessa mesma pasta.
-- Depois de qualquer alteracao no site, execute ATUALIZAR-SITE.bat.
-- Ele NAO abre Registro.br.
-- Ele NAO altera DNS.
-- Ele apenas envia as mudancas do site para o GitHub Pages.
+Medições adicionadas:
+- Visualizações/acessos normais via GA4
+- Evento download_windows
+- Evento download_android
+
+Como publicar:
+1. Substitua somente o index.html da pasta GESTOR-PRO-SITE.
+2. Execute ATUALIZAR-SITE-V7.bat.
+3. Aguarde 1 a 3 minutos.
+4. Abra gestorpro.log.br e faça um teste de acesso/download.
+
+Não altere robots.txt nem sitemap.xml nesta etapa.
