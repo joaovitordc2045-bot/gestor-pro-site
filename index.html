@@ -240,6 +240,15 @@
     .flow-check{color:var(--good);font-weight:900}
     @media(max-width:900px){.automation-grid{grid-template-columns:1fr}}
 
+
+    .seo-links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+    .seo-link-card{display:block;padding:22px;border:1px solid rgba(255,255,255,.075);border-radius:17px;background:linear-gradient(145deg,rgba(13,28,39,.88),rgba(8,17,25,.88));transition:.2s}
+    .seo-link-card:hover{transform:translateY(-2px);border-color:rgba(85,240,201,.28)}
+    .seo-link-card strong{display:block;color:#eafffa;font-size:18px;margin-bottom:7px}
+    .seo-link-card span{display:block;color:var(--muted);font-size:14px}
+    .seo-link-card em{display:block;color:var(--accent2);font-style:normal;font-size:12px;font-weight:900;margin-top:14px}
+    @media(max-width:760px){.seo-links{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -247,7 +256,7 @@
   <div class="wrap navin">
     <a class="brand" href="#"><span class="logo">↗</span><span>GESTOR <b>PRO</b></span></a>
     <div class="links">
-      <a href="#recursos">Recursos</a><a href="#automacao">Automação</a><a href="#demonstracao">Como funciona</a><a href="#versoes">Versões</a><a href="#assinatura">Assinatura</a><a href="#suporte">Suporte</a><a href="#faq">Dúvidas</a>
+      <a href="#recursos">Recursos</a><a href="#guias">Guias</a><a href="#automacao">Automação</a><a href="#demonstracao">Como funciona</a><a href="#versoes">Versões</a><a href="#assinatura">Assinatura</a><a href="#suporte">Suporte</a><a href="#faq">Dúvidas</a>
       <a class="btn primary navcta" href="#downloads">Baixar agora</a>
     </div>
   </div>
@@ -530,6 +539,34 @@
         <div class="contact-row"><div class="ico">i</div><div><b>Documentos</b><small>Termos de Uso e Política de Privacidade.</small></div></div>
         <div class="legal-links"><a href="#">Termos de Uso</a><a href="#">Política de Privacidade</a></div>
       </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="guias">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Guias do Gestor PRO</div>
+      <h2>Veja como organizar clientes, mensalidades e cobranças.</h2>
+      <p>Conheça páginas específicas sobre as principais rotinas que o Gestor PRO ajuda a centralizar.</p>
+    </div>
+    <div class="seo-links">
+      <a class="seo-link-card" href="controle-de-clientes/">
+        <strong>Controle de clientes</strong>
+        <span>Cadastro, contatos, vencimentos, pagamentos e histórico reunidos em um só lugar.</span>
+        <em>Ver controle de clientes →</em>
+      </a>
+      <a class="seo-link-card" href="controle-de-mensalidades/">
+        <strong>Controle de mensalidades</strong>
+        <span>Acompanhe quem pagou, próximos vencimentos, atrasos e histórico de pagamentos.</span>
+        <em>Ver controle de mensalidades →</em>
+      </a>
+      <a class="seo-link-card" href="controle-de-cobrancas/">
+        <strong>Controle de cobranças</strong>
+        <span>Organize cobranças de clientes, vencimentos, pagamentos e pendências.</span>
+        <em>Ver controle de cobranças →</em>
+      </a>
     </div>
   </div>
 </section>

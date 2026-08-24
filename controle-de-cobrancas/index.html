@@ -115,7 +115,17 @@
     footer{padding:34px 0;border-top:1px solid rgba(255,255,255,.06);color:#81959c;font-size:13px}
     footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     @media(max-width:800px){.hero{padding-top:58px}.hero-grid,.grid,.steps{grid-template-columns:1fr}.navlinks a:not(.btn){display:none}h1{letter-spacing:-1.3px}}
-  </style>
+  
+    .related{padding:68px 0}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .related-card{display:block;padding:20px;border:1px solid rgba(255,255,255,.075);border-radius:15px;background:rgba(10,24,34,.72);transition:.2s}
+    .related-card:hover{transform:translateY(-2px);border-color:rgba(53,214,194,.28)}
+    .related-card strong{display:block;font-size:16px;margin-bottom:6px}
+    .related-card span{display:block;color:#9eb0b7;font-size:13px}
+    .related-card em{display:block;color:var(--accent);font-style:normal;font-size:12px;font-weight:800;margin-top:12px}
+    @media(max-width:800px){.related-grid{grid-template-columns:1fr}}
+
+</style>
 </head>
 <body>
 <header>
@@ -192,6 +202,33 @@
     </div>
   </section>
 
+
+  <section class="related" aria-labelledby="relacionados-titulo">
+    <div class="wrap">
+      <div class="section-title">
+        <h2 id="relacionados-titulo">Veja também no Gestor PRO</h2>
+        <p>Explore outras áreas relacionadas à organização de clientes, pagamentos e cobranças.</p>
+      </div>
+      <div class="related-grid">
+        <a class="related-card" href="../controle-de-clientes/">
+          <strong>Controle de clientes</strong>
+          <span>Cadastro, contatos, pagamentos, vencimentos e histórico.</span>
+          <em>Ver página →</em>
+        </a>
+        <a class="related-card" href="../controle-de-mensalidades/">
+          <strong>Controle de mensalidades</strong>
+          <span>Mensalidades, pagamentos, atrasos e próximos vencimentos.</span>
+          <em>Ver página →</em>
+        </a>
+        <a class="related-card" href="../">
+          <strong>Conheça o Gestor PRO</strong>
+          <span>Veja todos os recursos, versões para Windows e Android, downloads e assinatura.</span>
+          <em>Ir para a página principal →</em>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="duvidas">
     <div class="wrap faq">
       <div class="section-title">
@@ -209,7 +246,7 @@
 <footer>
   <div class="wrap">
     <span>© Gestor PRO</span>
-    <span><a href="../">Página inicial</a> · <a href="../#assinatura">Planos</a></span>
+    <span><a href="../">Página inicial</a> · <a href="../controle-de-clientes/">Clientes</a> · <a href="../controle-de-mensalidades/">Mensalidades</a> · <a href="../controle-de-cobrancas/">Cobranças</a> · <a href="../#assinatura">Planos</a></span>
   </div>
 </footer>
 </body>
