@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://gestorpro.log.br/</loc>
-  </url>
-  <url>
-    <loc>https://gestorpro.log.br/controle-de-mensalidades/</loc>
-  </url>
+  <url><loc>https://gestorpro.log.br/</loc></url>
+  <url><loc>https://gestorpro.log.br/controle-de-mensalidades/</loc></url>
+  <url><loc>https://gestorpro.log.br/controle-de-clientes/</loc></url>
 </urlset>
