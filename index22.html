@@ -53,35 +53,11 @@
         "description": "Sistema de gestão de clientes, mensalidades, cobranças, financeiro, agenda, histórico e automação de mensagens.",
         "image": "https://gestorpro.log.br/assets/apresentacao-gestor-pro.png",
         "offers": {
-          "@type": "AggregateOffer",
+          "@type": "Offer",
+          "price": "39.90",
           "priceCurrency": "BRL",
-          "lowPrice": "49.90",
-          "highPrice": "479.90",
-          "offerCount": "3",
           "url": "https://gestorpro.log.br/#assinatura",
-          "offers": [
-            {
-              "@type": "Offer",
-              "name": "Gestor PRO Mensal",
-              "price": "49.90",
-              "priceCurrency": "BRL",
-              "availability": "https://schema.org/InStock"
-            },
-            {
-              "@type": "Offer",
-              "name": "Gestor PRO Semestral",
-              "price": "269.90",
-              "priceCurrency": "BRL",
-              "availability": "https://schema.org/InStock"
-            },
-            {
-              "@type": "Offer",
-              "name": "Gestor PRO Anual",
-              "price": "479.90",
-              "priceCurrency": "BRL",
-              "availability": "https://schema.org/InStock"
-            }
-          ]
+          "availability": "https://schema.org/InStock"
         },
         "featureList": [
           "Gestão de clientes",
@@ -272,223 +248,6 @@
     .seo-link-card span{display:block;color:var(--muted);font-size:14px}
     .seo-link-card em{display:block;color:var(--accent2);font-style:normal;font-size:12px;font-weight:900;margin-top:14px}
     @media(max-width:760px){.seo-links{grid-template-columns:1fr}}
-
-
-/* =========================================================
-   GESTOR PRO SITE — FUNDO PREMIUM + 3 PLANOS
-   Mesmo clima visual da tela de login do aplicativo
-   ========================================================= */
-
-html{
-  background:#071a23;
-}
-
-body{
-  position:relative;
-  min-height:100vh;
-  background:
-    radial-gradient(ellipse at 9% 13%, rgba(31,222,197,.24) 0%, rgba(12,117,127,.13) 28%, transparent 49%),
-    radial-gradient(ellipse at 87% 14%, rgba(51,161,214,.18) 0%, transparent 43%),
-    radial-gradient(ellipse at 82% 84%, rgba(23,202,177,.15) 0%, transparent 42%),
-    radial-gradient(ellipse at 22% 88%, rgba(45,129,172,.12) 0%, transparent 40%),
-    linear-gradient(135deg,#071c24 0%,#0a2934 42%,#071b25 72%,#06151d 100%) !important;
-  background-attachment:fixed !important;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-2;
-  background-image:
-    linear-gradient(rgba(103,238,222,.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(103,238,222,.055) 1px,transparent 1px);
-  background-size:52px 52px;
-  opacity:.55;
-  mask-image:radial-gradient(ellipse at center,black 15%,rgba(0,0,0,.72) 62%,transparent 100%);
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  inset:-8% -5%;
-  pointer-events:none;
-  z-index:-1;
-  opacity:.42;
-  background:
-    radial-gradient(circle at 8% 78%,rgba(53,214,194,.35) 0 3px,transparent 4px),
-    radial-gradient(circle at 74% 28%,rgba(53,214,194,.2) 0 2px,transparent 3px),
-    linear-gradient(167deg,transparent 0 17%,rgba(53,214,194,.18) 17.2%,transparent 17.6% 54%,rgba(53,214,194,.12) 54.2%,transparent 54.6%),
-    linear-gradient(12deg,transparent 0 70%,rgba(85,240,201,.08) 70.2%,transparent 70.6%);
-  animation:gpSiteAmbient 16s ease-in-out infinite alternate;
-}
-
-@keyframes gpSiteAmbient{
-  from{transform:translate3d(-1%,0,0);filter:brightness(.96)}
-  to{transform:translate3d(1%,-.6%,0);filter:brightness(1.08)}
-}
-
-.nav{
-  background:rgba(4,17,24,.72) !important;
-  border-bottom:1px solid rgba(96,226,211,.12) !important;
-  box-shadow:0 10px 40px rgba(0,0,0,.12);
-}
-
-.section.alt{
-  background:
-    linear-gradient(180deg,rgba(8,31,40,.50),rgba(4,17,24,.28)) !important;
-  border-top:1px solid rgba(85,240,201,.035);
-  border-bottom:1px solid rgba(85,240,201,.035);
-}
-
-.card,.version,.platform-card,.automation-flow,.support-card,.official-card,.price-card,
-.gallery figure,.feature-shot,.proof-image,.seo-link-card,.cta{
-  backdrop-filter:blur(14px) saturate(118%);
-  -webkit-backdrop-filter:blur(14px) saturate(118%);
-}
-
-/* Área de planos */
-.plans-shell{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-  align-items:stretch;
-}
-
-.plan-card{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  min-height:100%;
-  padding:28px;
-  border:1px solid rgba(148,163,184,.14);
-  border-radius:22px;
-  background:
-    linear-gradient(145deg,rgba(11,29,39,.88),rgba(5,18,26,.92));
-  box-shadow:0 20px 60px rgba(0,0,0,.18);
-  overflow:hidden;
-  transition:.22s ease;
-}
-
-.plan-card::after{
-  content:"";
-  position:absolute;
-  width:180px;height:180px;
-  right:-90px;top:-95px;
-  border-radius:50%;
-  background:rgba(53,214,194,.065);
-  pointer-events:none;
-}
-
-.plan-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(85,240,201,.36);
-  box-shadow:0 24px 70px rgba(0,0,0,.24),0 0 0 1px rgba(53,214,194,.05);
-}
-
-.plan-card.best{
-  border-color:rgba(85,240,201,.45);
-  background:
-    radial-gradient(circle at 90% 0%,rgba(33,212,189,.18),transparent 35%),
-    linear-gradient(145deg,rgba(11,35,42,.95),rgba(5,20,27,.95));
-  box-shadow:0 22px 70px rgba(0,0,0,.26),0 0 42px rgba(33,212,189,.09);
-}
-
-.plan-badge{
-  position:absolute;
-  top:18px;
-  right:18px;
-  padding:6px 9px;
-  border-radius:999px;
-  background:rgba(255,200,87,.14);
-  border:1px solid rgba(255,200,87,.22);
-  color:#ffd76c;
-  font-size:10px;
-  font-weight:950;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-
-.plan-name{
-  color:var(--accent2);
-  font-size:12px;
-  font-weight:950;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-.plan-price{
-  margin:14px 0 2px;
-  font-size:42px;
-  font-weight:950;
-  letter-spacing:-.055em;
-  line-height:1;
-}
-
-.plan-equivalent{
-  min-height:24px;
-  margin-top:8px;
-  color:#a8bdc5;
-  font-size:13px;
-}
-
-.plan-save{
-  display:inline-flex;
-  width:max-content;
-  margin-top:11px;
-  padding:6px 9px;
-  border-radius:999px;
-  background:rgba(57,217,138,.10);
-  border:1px solid rgba(57,217,138,.13);
-  color:#50e6a0;
-  font-size:11px;
-  font-weight:900;
-}
-
-.plan-desc{
-  color:var(--muted);
-  margin:20px 0 16px;
-}
-
-.plan-features{
-  display:grid;
-  gap:10px;
-  margin:0 0 24px;
-  color:#c9d9dd;
-  font-size:14px;
-}
-
-.plan-features span::before{
-  content:"✓";
-  color:var(--accent2);
-  font-weight:950;
-  margin-right:9px;
-}
-
-.plan-card .btn{
-  width:100%;
-  margin-top:auto;
-}
-
-.plans-note{
-  margin-top:20px;
-  padding:18px 20px;
-  border:1px solid rgba(85,240,201,.14);
-  border-radius:16px;
-  background:rgba(5,22,29,.62);
-  color:#9fb5bd;
-  font-size:13px;
-  text-align:center;
-}
-
-@media(max-width:900px){
-  .plans-shell{grid-template-columns:1fr}
-}
-
-@media(prefers-reduced-motion:reduce){
-  body::after{animation:none}
-}
 
 </style>
 </head>
@@ -727,74 +486,35 @@ body::after{
 <section class="section">
   <div class="wrap cta">
     <div><h2>Quer transformar sua rotina de gestão?</h2><p>Conheça o Gestor PRO e escolha a versão ideal para você.</p></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="#downloads">Baixar agora</a><a class="btn" href="#assinatura">Ver planos</a></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="#downloads">Baixar agora</a><a class="btn" href="https://mpago.la/1cLXxPQ" rel="noopener">Assinar Gestor PRO</a></div>
   </div>
 </section>
 
 
 <section class="section alt" id="assinatura">
   <div class="wrap">
-    <div class="head">
-      <div class="kicker">Assinatura</div>
-      <h2>Escolha por quanto tempo deseja usar o Gestor PRO.</h2>
-      <p>Os três planos liberam os mesmos recursos. Quanto maior o período escolhido, maior a economia no valor equivalente por mês.</p>
-    </div>
-
-    <div class="plans-shell">
-      <article class="plan-card">
-        <div class="plan-name">Mensal</div>
-        <div class="plan-price">R$ 49,90</div>
-        <div class="plan-equivalent">1 mês de acesso</div>
-        <p class="plan-desc">Flexibilidade para usar o Gestor PRO mês a mês.</p>
-        <div class="plan-features">
-          <span>Gestão de clientes e mensalidades</span>
-          <span>Automação de mensagens</span>
-          <span>Financeiro, agenda e relatórios</span>
-          <span>Windows + Android</span>
-          <span>Atualizações do sistema</span>
-          <span>Central de suporte</span>
+    <div class="head"><div class="kicker">Assinatura</div><h2>Um plano simples para usar o Gestor PRO.</h2><p>Sem uma tabela confusa de versões. A proposta é manter uma experiência direta para quem quer organizar a gestão.</p></div>
+    <div class="price-grid">
+      <article class="price-card featured">
+        <div class="os">Gestor PRO mensal</div>
+        <div class="price-big">R$ 39,90 <small>/ mês</small></div>
+        <p style="color:var(--muted)">Assinatura mensal do Gestor PRO.</p>
+        <div class="incl">
+          <span>Acesso ao Gestor PRO</span><span>Automação de mensagens</span><span>Versão para Windows</span><span>Versão para Android</span><span>Atualizações disponibilizadas para o sistema</span><span>Central de suporte</span>
         </div>
-        <a class="btn primary" href="#downloads">Baixar e escolher Mensal</a>
+        <a class="btn primary" style="width:100%" href="https://mpago.la/1cLXxPQ" rel="noopener">Assinar Gestor PRO</a>
+        <p class="smallprint">O link de pagamento pode ser substituído pelo checkout definitivo antes da publicação.</p>
       </article>
-
-      <article class="plan-card">
-        <div class="plan-name">Semestral</div>
-        <div class="plan-price">R$ 269,90</div>
-        <div class="plan-equivalent">R$ 44,98/mês · 6 meses de acesso</div>
-        <div class="plan-save">Economize R$ 29,50</div>
-        <p class="plan-desc">Mais tranquilidade por seis meses e um valor mensal equivalente menor.</p>
-        <div class="plan-features">
-          <span>Todos os recursos do plano Mensal</span>
-          <span>6 meses de acesso liberado</span>
-          <span>Sem cobrança automática</span>
-          <span>Pagamento por Pix no aplicativo</span>
-          <span>Windows + Android</span>
-          <span>Central de suporte</span>
+      <article class="official-card">
+        <div class="kicker">Compra com mais clareza</div>
+        <h3 style="font-size:30px;line-height:1.08;margin:10px 0 12px">Saiba exatamente o que você está instalando.</h3>
+        <p style="color:var(--muted)">Este site concentra apresentação, demonstrações, assinatura e download oficial das versões disponíveis. Isso facilita identificar o canal correto antes de instalar qualquer arquivo.</p>
+        <div class="credibility">
+          <div><b>Download centralizado</b><span>Windows e Android no mesmo domínio oficial.</span></div>
+          <div><b>Versões identificadas</b><span>Espaço preparado para informar versão e atualização atual.</span></div>
+          <div><b>Suporte acessível</b><span>Canal de atendimento próximo ao download e à assinatura.</span></div>
         </div>
-        <a class="btn primary" href="#downloads">Baixar e escolher Semestral</a>
       </article>
-
-      <article class="plan-card best">
-        <span class="plan-badge">Melhor escolha</span>
-        <div class="plan-name">Anual</div>
-        <div class="plan-price">R$ 479,90</div>
-        <div class="plan-equivalent">R$ 39,99/mês · 12 meses de acesso</div>
-        <div class="plan-save">Economize R$ 118,90</div>
-        <p class="plan-desc">O melhor custo-benefício para quem quer usar o Gestor PRO durante o ano inteiro.</p>
-        <div class="plan-features">
-          <span>Todos os recursos do plano Mensal</span>
-          <span>12 meses de acesso liberado</span>
-          <span>Sem cobrança automática</span>
-          <span>Pagamento por Pix no aplicativo</span>
-          <span>Windows + Android</span>
-          <span>Central de suporte</span>
-        </div>
-        <a class="btn primary" href="#downloads">Baixar e escolher Anual</a>
-      </article>
-    </div>
-
-    <div class="plans-note">
-      O pagamento é gerado dentro do Gestor PRO por Pix. O plano escolhido libera o período correspondente após a confirmação do pagamento.
     </div>
   </div>
 </section>
