@@ -53,14 +53,23 @@ if (!(Get-Command gh -ErrorAction SilentlyContinue)) { Parar "GitHub CLI nao enc
 
 Write-Host "[1/6] Procurando automaticamente as versoes mais novas..." -ForegroundColor White
 
-# Normalmente GESTOR-PRO-SITE e os dois projetos ficam lado a lado na Area de Trabalho.
+# Procura os projetos ao lado do site na Area de Trabalho.
+# IMPORTANTE: a pasta do projeto Windows pode se chamar apenas "PC",
+# por isso nao limitamos mais a busca a pastas com nome Gestor-Pro*.
 $Parent = Split-Path -Parent $Root
+
 $SiblingFolders = Get-ChildItem -Path $Parent -Directory -ErrorAction SilentlyContinue |
-    Where-Object { $_.Name -like "Gestor-Pro*" -or $_.Name -like "GESTOR-PRO*" } |
+    Where-Object {
+        $_.FullName -ne $Root -and
+        $_.Name -notmatch '^(node_modules|\.git|dist-android|downloads)$'
+    } |
     Select-Object -ExpandProperty FullName
 
-# Inclui também a própria pasta para funcionar se o usuário já colocou os arquivos em downloads.
-$SearchFolders = @($Root) + @($SiblingFolders | Where-Object { $_ -ne $Root })
+# Inclui a propria pasta do site e TODAS as pastas irmas.
+# Assim encontra, por exemplo:
+#   Desktop\PC\dist\Gestor-Pro-Setup-1.0.14.exe
+#   Desktop\Gestor-Pro-Android-...\dist-android\Gestor-Pro-Android-0.2.17.apk
+$SearchFolders = @($Root) + @($SiblingFolders)
 
 $LatestWin = Get-LatestBuild $SearchFolders "Gestor-Pro-Setup-*.exe" '^Gestor-Pro-Setup-(\d+\.\d+\.\d+)\.exe$'
 $LatestAndroid = Get-LatestBuild $SearchFolders "Gestor-Pro-Android-*.apk" '^Gestor-Pro-Android-(\d+\.\d+\.\d+)\.apk$'
@@ -78,7 +87,9 @@ $WinVersion = $LatestWin.Version.ToString()
 $AndroidVersion = $LatestAndroid.Version.ToString()
 
 Write-Host "Windows encontrado: v$WinVersion  ($WinName)" -ForegroundColor Green
+Write-Host "  Origem Windows: $($LatestWin.File.FullName)" -ForegroundColor DarkGray
 Write-Host "Android encontrado: v$AndroidVersion  ($AndroidName)" -ForegroundColor Green
+Write-Host "  Origem Android: $($LatestAndroid.File.FullName)" -ForegroundColor DarkGray
 
 $WinDest = Join-Path $Downloads $WinName
 $AndroidDest = Join-Path $Downloads $AndroidName
