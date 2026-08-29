@@ -1,13 +1,11 @@
 ﻿{
-    "updatedAt":  "2026-08-28T18:44:11-03:00",
+    "updatedAt":  "2026-08-26T19:43:49-03:00",
     "windows":  {
-                    "version":  "1.0.19",
-                    "file":  "Gestor-Pro-Setup-1.0.19.exe",
-                    "url":  "https://github.com/joaovitordc2045-bot/gestor-pro-updates/releases/download/v1.0.19/Gestor-Pro-Setup-1.0.19.exe"
+                    "version":  "1.0.18",
+                    "file":  "Gestor-Pro-Setup-1.0.18.exe"
                 },
     "android":  {
-                    "version":  "0.2.31",
-                    "file":  "Gestor-Pro-Android-0.2.31.apk",
-                    "url":  "https://github.com/joaovitordc2045-bot/gestor-pro-updates/releases/download/android-v0.2.31/Gestor-Pro-Android-0.2.31.apk"
+                    "version":  "0.2.30",
+                    "file":  "Gestor-Pro-Android-0.2.30.apk"
                 }
 }
