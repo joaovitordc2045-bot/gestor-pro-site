@@ -1,5 +1,0 @@
-Coloque nesta pasta:
-1. Gestor-Pro-Setup.exe  -> instalador oficial do Windows
-2. Gestor-Pro.apk        -> instalador oficial do Android
-
-Os botões do site já estão configurados para esses nomes.
